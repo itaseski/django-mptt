@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'works.apps.WorksConfig',
     'mptt',
     'django.contrib.admin',
     'django.contrib.auth',

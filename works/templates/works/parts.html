@@ -1,0 +1,15 @@
+{% load mptt_tags %}
+
+<h3>Parts</h3>
+<ul>
+  {% recursetree parts %}
+  <li>
+    {{ node.name }}
+    {% if not node.is_leaf_node %}
+    <ul class="children">
+        {{ children }}{{ children.tree_id }}
+    </ul>
+    {% endif %}
+  </li>
+  {% endrecursetree %}
+</ul>
