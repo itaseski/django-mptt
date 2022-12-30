@@ -1,15 +1,30 @@
-{% load mptt_tags %}
+{% extends "works/base.html" %} 
+{% load mptt_tags %} 
+
+<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+  Example element with utilities
+</div>
+
+{% block parts %}
 
 <h3>Parts</h3>
-<ul>
+<ul class="list-unstyled">
   {% recursetree parts %}
   <li>
-    {{ node.name }}
+    {{ node.code }} {{ node.name }}
+    
     {% if not node.is_leaf_node %}
-    <ul class="children">
-        {{ children }}{{ children.tree_id }}
-    </ul>
+   
+      <ul class="children list-unstyled fst-italic mx-5">
+        {% if node %}
+        <li>{{ children }}</li>
+        {% endif %}
+      </ul>
+
     {% endif %}
+
   </li>
   {% endrecursetree %}
 </ul>
+
+{% endblock %}
